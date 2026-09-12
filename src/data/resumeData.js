@@ -133,6 +133,11 @@ export const formations = [
 
 export const projects = [
   {
+    image: "6.png",
+    description: "Agrégateur perso de programmes TV sport (React 19, Vite 7, pipeline Node.js, CI/CD)",
+    href: "https://benjaminbusselet.github.io/tv_sports/",
+  },
+  {
     image: "1.png",
     description: "Un site OnePage 100% responsive pour un festival",
     href: "https://github.com/benjaminbusselet/lesfilmsdepleinair_react",
