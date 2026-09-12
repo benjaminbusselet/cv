@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import profile from "../assets/profile.jpg";
 import menuIcon from "../assets/menu.png";
@@ -9,13 +9,35 @@ const navLinkClass = ({ isActive }) => `nav-link ${isActive ? "active" : ""}`;
 export default function Sidebar() {
   const isMobile = useIsMobile();
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const sidebarRef = useRef(null);
 
   const closeSidebarOnMobile = () => {
     if (isMobile) setIsSidebarOpen(false);
   };
 
+  // En mobile, .sidebar est en position: fixed avec une hauteur qui
+  // dépend à la fois du contenu (photo, nom) et de vw (largeur
+  // d'écran) — impossible à deviner en dur en CSS avec un vh fixe.
+  // On mesure sa vraie hauteur et on l'expose en variable CSS pour
+  // que main.haut puisse s'y aligner exactement, sans jamais chevaucher
+  // ni laisser un vide sous le header.
+  useEffect(() => {
+    const el = sidebarRef.current;
+    if (!el) return;
+    const updateHeight = () => {
+      document.documentElement.style.setProperty(
+        "--sidebar-mobile-height",
+        `${el.getBoundingClientRect().height}px`
+      );
+    };
+    updateHeight();
+    const observer = new ResizeObserver(updateHeight);
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [isMobile]);
+
   return (
-    <nav className={`sidebar ${isMobile ? "mobile" : ""}`}>
+    <nav ref={sidebarRef} className={`sidebar ${isMobile ? "mobile" : ""}`}>
       <div className="sidebar-header">
         <div className="photo">
           <img src={profile} alt="Benjamin Busselet" title="photo" />

@@ -365,7 +365,13 @@ li,
 @media (max-width: 639px) {
     main {
         margin-left: initial;
-        margin-top: 10vh;
+        /* --sidebar-mobile-height est mesurée en JS (Sidebar.jsx) car
+           la hauteur réelle du header fixe dépend à la fois du
+           contenu et de vw : un vh fixe sous/sur-estimait cet espace
+           selon l'appareil, provoquant un chevauchement du titre par
+           le header sur certains écrans. 10vh reste un fallback avant
+           la première mesure. */
+        margin-top: var(--sidebar-mobile-height, 10vh);
         padding-top: 30vh;
     }
 
