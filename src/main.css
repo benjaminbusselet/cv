@@ -260,20 +260,18 @@ li,
 }
 
 .projets article {
-    column-gap: 2vw;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2vw 2vw;
+    align-content: start;
 }
 
 .card {
     background-color: transparent;
     height: 20vh;
-    margin-bottom: 1em;
     padding: 0.4%;
     perspective: 1000px;
-    width: calc(25% - 1.5vw);
+    width: 100%;
 }
 
 .flip-card-inner {
@@ -480,6 +478,10 @@ li,
         grid-template-columns: 1fr;
     }
 
+    .projets article {
+        grid-template-columns: 1fr;
+        height: auto;
+    }
 }
 
 h1, h2, h3, h4, .title_item, .subtitle {
