@@ -8,7 +8,9 @@ function SkillCard({ name }) {
   const Icon = meta?.icon;
   return (
     <div className="skill-card">
-      {Icon && <Icon className="skill-card__icon" style={{ color: meta.color }} />}
+      {Icon && (
+        <Icon className="skill-card__icon" style={{ color: meta.color }} aria-hidden="true" />
+      )}
       <span className="skill-card__name">{name}</span>
     </div>
   );

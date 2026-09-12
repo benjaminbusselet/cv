@@ -1,6 +1,32 @@
+:root {
+    --color-text: #242220;
+    --color-bg: #faf7f2;
+    --color-sidebar-bg: #1c1a17;
+    --color-sidebar-text: #f3efe8;
+    --color-panel-bg: #f3efe8;
+    --color-accent: #a04f24;
+    --color-accent-on-dark: #c96f34;
+}
+
+/* Mode sombre automatique, basé sur la préférence système de
+   l'utilisateur (aucun bouton de bascule : suit l'heure/le thème du
+   système, comme le reste du site). Conserve les mêmes ratios de
+   contraste WCAG AA que la palette claire. */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color-text: #f3efe8;
+        --color-bg: #242220;
+        --color-sidebar-bg: #17150f;
+        --color-sidebar-text: #f3efe8;
+        --color-panel-bg: #2f2c28;
+        --color-accent: #d47a3f;
+        --color-accent-on-dark: #d47a3f;
+    }
+}
+
 body {
-    color: #242220;
-    background-color: #faf7f2;
+    color: var(--color-text);
+    background-color: var(--color-bg);
     display: flex;
     flex-direction: row;
     font-family: 'IBM Plex Sans', Optima, sans-serif;
@@ -43,13 +69,17 @@ ul {
 }
 
 a {
-    color: #c96f34;
+    /* Version assombrie de l'accent (#c96f34) pour atteindre le ratio
+       WCAG AA de 4.5:1 minimum sur le fond clair : l'orange d'origine
+       n'était qu'à 3.38:1. --color-accent est redéfini en mode sombre
+       avec une teinte qui reste conforme sur le fond sombre. */
+    color: var(--color-accent);
 }
 
 .sidebar {
     align-items: center;
-    background-color: #1c1a17;
-    color: #f3efe8;
+    background-color: var(--color-sidebar-bg);
+    color: var(--color-sidebar-text);
     display: flex;
     flex-direction: column;
     height: 100vh;
@@ -114,7 +144,7 @@ a {
 }
 
 .nav-link.active {
-    color: #c96f34;
+    color: var(--color-accent-on-dark);
 }
 
 main {
@@ -281,7 +311,7 @@ li,
 
 .flip-card-back {
     align-items: center;
-    background-color: #c96f34;
+    background-color: var(--color-accent-on-dark);
     color: #1c1a17;
     display: flex;
     justify-content: center;
@@ -299,7 +329,40 @@ li,
 
 /* Media Queries */
 
-@media (max-width: 768px) {
+/* Tablette (640-1023px) : garde la sidebar verticale du desktop mais
+   réduite, plutôt que de basculer directement en menu mobile
+   déroulant — le layout desktop tel quel gaspillait sinon un tiers de
+   la largeur d'écran en trop, et le mode mobile était sous-exploité
+   sur un écran de cette taille. */
+@media (min-width: 640px) and (max-width: 1023px) {
+    .sidebar {
+        width: 30vw;
+    }
+
+    .sidebar-header {
+        height: 26vw;
+        width: 26vw;
+    }
+
+    .button,
+    .photo {
+        width: 20vw;
+        height: 20vw;
+    }
+
+    main {
+        margin-left: 30vw;
+        width: calc(100% - 30vw);
+    }
+
+    .title,
+    article {
+        padding-left: 4vw;
+        padding-right: 4vw;
+    }
+}
+
+@media (max-width: 639px) {
     main {
         margin-left: initial;
         margin-top: 10vh;
@@ -337,7 +400,7 @@ li,
 
     .sidebar-nav {
         align-items: center;
-        background-color: #1c1a17;
+        background-color: var(--color-sidebar-bg);
         max-height: 0;
         overflow: hidden;
         transition: max-height 0.3s ease;
@@ -360,12 +423,20 @@ li,
     .toggle-button {
         width: 40px;
         height: 40px;
+        padding: 0;
+        border: none;
+        background: transparent;
         cursor: pointer;
     }
 
+    .toggle-button img {
+        width: 100%;
+        height: 100%;
+    }
 
-    .toggle-button:focus {
-        outline: none;
+    .toggle-button:focus-visible {
+        outline: 2px solid var(--color-accent);
+        outline-offset: 2px;
     }
 
     .title_item {
@@ -403,7 +474,7 @@ h1, h2, h3, h4, .title_item, .subtitle {
 }
 
 .subtitle, .table_title {
-    color: #c96f34;
+    color: var(--color-accent);
 }
 
 /* --- Compétences techniques : cartes compactes (tiennent sans scroll) --- */
@@ -424,14 +495,14 @@ h1, h2, h3, h4, .title_item, .subtitle {
     min-width: 58px;
     min-height: 58px;
     border-radius: 10px;
-    background: #f3efe8;
-    border: 1px solid rgba(28, 26, 23, 0.08);
+    background: var(--color-panel-bg);
+    border: 1px solid rgba(128, 128, 128, 0.18);
     transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 .skill-card:hover {
     transform: translateY(-3px);
-    box-shadow: 0 6px 12px rgba(28, 26, 23, 0.12);
+    box-shadow: 0 6px 12px rgba(128, 128, 128, 0.25);
 }
 
 .skill-card__icon {
@@ -453,14 +524,14 @@ h1, h2, h3, h4, .title_item, .subtitle {
 }
 
 .skills-panel {
-    background: #f3efe8;
-    border: 1px solid rgba(28, 26, 23, 0.08);
+    background: var(--color-panel-bg);
+    border: 1px solid rgba(128, 128, 128, 0.18);
     border-radius: 12px;
     padding: 1vw 1vw 0.6vw;
 }
 
 .skills-panel__title {
-    color: #c96f34;
+    color: var(--color-accent);
     font-size: 0.8rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -474,7 +545,7 @@ h1, h2, h3, h4, .title_item, .subtitle {
 }
 
 .skills-panel .skill-card {
-    background: #faf7f2;
+    background: var(--color-bg);
     width: 3.6vw;
     height: 3.6vw;
     min-width: 50px;
@@ -498,7 +569,7 @@ h1, h2, h3, h4, .title_item, .subtitle {
 }
 
 .skills-other__title {
-    color: #c96f34;
+    color: var(--color-accent);
     font-size: 0.8rem;
     margin-bottom: 0.6vh;
 }

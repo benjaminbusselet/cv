@@ -27,16 +27,20 @@ export default function Sidebar() {
         )}
         {isMobile && (
           <div className="button">
-            <img
+            <button
+              type="button"
               className="toggle-button"
-              src={menuIcon}
-              alt="Ouvrir le menu"
               onClick={() => setIsSidebarOpen((prev) => !prev)}
-            />
+              aria-expanded={isSidebarOpen}
+              aria-controls="sidebar-nav"
+              aria-label={isSidebarOpen ? "Fermer le menu" : "Ouvrir le menu"}
+            >
+              <img src={menuIcon} alt="" aria-hidden="true" />
+            </button>
           </div>
         )}
       </div>
-      <div className={`sidebar-nav ${isSidebarOpen ? "active" : ""}`}>
+      <div id="sidebar-nav" className={`sidebar-nav ${isSidebarOpen ? "active" : ""}`}>
         <NavLink to="/presentation" className={navLinkClass} onClick={closeSidebarOnMobile}>
           Présentation
         </NavLink>
