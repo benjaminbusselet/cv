@@ -267,8 +267,13 @@ li,
 }
 
 .card {
+    /* Les captures de projets font toutes 1280x720 (16:9). La carte
+       adopte ce même ratio plutôt qu'une hauteur fixe indépendante de
+       sa largeur (20vh) — sinon le cadre ne correspond jamais
+       exactement à l'image, laissant des bandes vides (avec
+       object-fit: contain) ou rognant l'image (avec cover). */
+    aspect-ratio: 16 / 9;
     background-color: transparent;
-    height: 20vh;
     padding: 0.4%;
     perspective: 1000px;
     width: 100%;
@@ -304,10 +309,10 @@ li,
 .flip-card-front img {
     width: 100%;
     height: 100%;
-    /* contain plutôt que cover : l'image entière reste visible sans
-       être rognée, quitte à laisser un léger espace vide si son ratio
-       ne correspond pas exactement au cadre. */
-    object-fit: contain;
+    /* Le cadre (.card) a maintenant le même ratio 16:9 que les
+       images : cover ne rogne donc plus rien, il ne fait que remplir
+       exactement le cadre sans espace vide ni déformation. */
+    object-fit: cover;
 }
 
 .flip-card-back {
