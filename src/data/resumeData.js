@@ -57,30 +57,12 @@ export const skillsDatabase = [
 
 export const otherSkills = [
   {
-    title: "Gestion De Parc Informatique",
-    items: [
-      "diagnostiquer une panne",
-      "remplacer un matériel défectueux",
-      "tester les équipements",
-      "effectuer l'entretien des matériels",
-      "conseiller la clientèle",
-    ],
+    title: "Dev Assisté par IA",
+    items: ["Claude (Cowork, Claude Code) — usage quotidien"],
   },
   {
-    title: "Cours et Support Informatique",
-    items: [
-      "Animation de cours",
-      "Aide à l'utilisation des équipements informatiques",
-      "Soutien dans la pratique des systèmes et logiciels",
-    ],
-  },
-  {
-    title: "Dev Assisté par IA & Compétences Secondaires",
-    items: [
-      "Claude (Cowork, Claude Code) — usage quotidien en développement",
-      "Scripting Lua",
-      "Intégration plateforme low-code Corteza",
-    ],
+    title: "Compétences Secondaires",
+    items: ["Scripting Lua", "Intégration Corteza (low-code)"],
   },
 ];
 
