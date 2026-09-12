@@ -44,6 +44,7 @@ export const skillGroups = [
       { name: "HTML5" },
       { name: "CSS" },
       { name: "PHP" },
+      { name: "Lua" },
     ],
   },
   {
@@ -83,7 +84,7 @@ export const otherSkills = [
   },
   {
     title: "Compétences Secondaires",
-    items: ["Scripting Lua", "Intégration Corteza (low-code)"],
+    items: ["Intégration Corteza (low-code)"],
   },
 ];
 

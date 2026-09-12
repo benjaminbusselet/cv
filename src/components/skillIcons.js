@@ -14,6 +14,7 @@ import {
   SiVite,
   SiNpm,
   SiGit,
+  SiLua,
 } from "react-icons/si";
 import { FaDatabase } from "react-icons/fa6";
 
@@ -37,4 +38,5 @@ export const skillIcons = {
   Vite: { icon: SiVite, color: "#646CFF" },
   Npm: { icon: SiNpm, color: "#CB3837" },
   Git: { icon: SiGit, color: "#F05032" },
+  Lua: { icon: SiLua, color: "#2C2D72" },
 };

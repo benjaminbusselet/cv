@@ -14,24 +14,6 @@ function SkillCard({ name, categoryClass }) {
   );
 }
 
-// --- Layout A : sections empilées, titre de catégorie discret --------
-function StackedLayout() {
-  return (
-    <div className="skills-stacked">
-      {skillGroups.map((group) => (
-        <div className="skills-stacked__group" key={group.title}>
-          <h4 className="skills-stacked__title">{group.title}</h4>
-          <div className="skills-cards">
-            {group.skills.map((skill) => (
-              <SkillCard key={skill.name} name={skill.name} />
-            ))}
-          </div>
-        </div>
-      ))}
-    </div>
-  );
-}
-
 // --- Layout B : catégories en panneaux (style dashboard) -------------
 function PanelsLayout() {
   return (
@@ -84,21 +66,20 @@ function ColorCodedLayout() {
 }
 
 const layouts = {
-  stacked: { label: "Sections", Component: StackedLayout },
   panels: { label: "Panneaux", Component: PanelsLayout },
   coded: { label: "Couleur par catégorie", Component: ColorCodedLayout },
 };
 
 export default function Competences() {
-  const [layout, setLayout] = useState("stacked");
+  const [layout, setLayout] = useState("panels");
   const { Component } = layouts[layout];
 
   return (
-    <section className="devweb">
+    <section className="devweb devweb--compact">
       <SectionTitle heading="Compétences" className="title_item" />
       <article>
-        {/* Sélecteur temporaire pour comparer les layouts. À retirer une
-            fois le choix final validé. */}
+        {/* Sélecteur temporaire pour comparer les 2 layouts retenus.
+            À retirer une fois le choix final validé. */}
         <div className="variant-switch">
           {Object.entries(layouts).map(([key, { label }]) => (
             <button
@@ -114,16 +95,18 @@ export default function Competences() {
 
         <Component />
 
-        {otherSkills.map((group) => (
-          <div className="item" key={group.title}>
-            <h3 className="subtitle">{group.title}</h3>
-            <ul>
-              {group.items.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-          </div>
-        ))}
+        <div className="skills-other">
+          {otherSkills.map((group) => (
+            <div className="skills-other__group" key={group.title}>
+              <h4 className="skills-other__title">{group.title}</h4>
+              <ul>
+                {group.items.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
       </article>
     </section>
   );
