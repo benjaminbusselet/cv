@@ -6,7 +6,7 @@ export const profile = {
   tagline:
     "Développeur web front-end / full-stack (React, Node.js, Next.js), reconverti après 10 ans en maintenance informatique. Actuellement Solution Expert chez Smart Global Governance, où je développe des scripts Lua et intègre la plateforme Corteza au quotidien — assisté par Claude pour accélérer la production.",
   availability:
-    "Ouvert aux opportunités développeur front-end / full-stack en CDI, Alpes-Maritimes.",
+    "Ouvert aux opportunités développeur front-end / full-stack en CDI, télétravail full ou hybride.",
   contacts: [
     { icon: "fas fa-phone-square-alt", label: "06 22 15 43 99" },
     {
@@ -21,12 +21,9 @@ export const profile = {
       external: true,
     },
     {
-      icon: "fas fa-globe",
-      label: "benjaminbusselet.github.io/cv",
-      href: "https://benjaminbusselet.github.io/cv",
-      external: true,
+      icon: "fas fa-map-marker-alt",
+      label: "Alpes-Maritimes (06) — Télétravail full/hybride — Permis B, véhicule",
     },
-    { icon: "fas fa-map-marker-alt", label: "Alpes-Maritimes (06) — Permis B, véhicule" },
   ],
 };
 
