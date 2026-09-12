@@ -164,7 +164,6 @@ section {
 article {
     padding-left: 5vw;
     padding-right: 5vw;
-    padding-top: 2vh;
 }
 
 /* Sur les grands écrans, le contenu ne doit pas s'étirer indéfiniment
@@ -184,13 +183,8 @@ article {
 article p,
 article i,
 article ul,
-.mb2,
-.subtitle {
+.mb2 {
     margin-bottom: 2vh;
-}
-
-.subtitle {
-    margin-top: 2vh;
 }
 
 article a {
@@ -627,4 +621,99 @@ h1, h2, h3, h4, .title_item, .subtitle {
         flex-direction: column;
         gap: 1.5vh;
     }
+}
+
+/* ==========================================================================
+   Raffinements visuels : transitions, respiration, hiérarchie, profondeur
+   ========================================================================== */
+
+/* --- Transition de page (fade + léger slide vers le haut) --- */
+
+.page-transition {
+    animation: page-fade-in 0.35s ease both;
+}
+
+@keyframes page-fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .page-transition {
+        animation: none;
+    }
+}
+
+/* --- Respiration : espacements plus généreux entre les blocs --- */
+
+.title,
+article {
+    padding-top: 3vh;
+}
+
+article p,
+article i,
+article ul,
+.mb2,
+.subtitle {
+    margin-bottom: 2.6vh;
+}
+
+.subtitle {
+    margin-top: 3vh;
+}
+
+.skills-panels {
+    gap: 1.6vw;
+}
+
+.skills-panel {
+    padding: 1.4vw 1.4vw 1vw;
+}
+
+/* --- Hiérarchie typographique : titres plus impactants, détails plus discrets --- */
+
+.title_item.name {
+    font-size: 1.6rem;
+    letter-spacing: 0.03em;
+}
+
+.title h3 {
+    font-size: 1.4rem;
+}
+
+.experiences .item small,
+.formations .item small {
+    color: var(--color-text);
+    opacity: 0.55;
+    font-size: 0.8rem;
+    letter-spacing: 0.03em;
+}
+
+/* --- Profondeur : ombre douce sur la photo de profil, hover plus soigné --- */
+
+.photo img {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+.skills-panel {
+    transition: box-shadow 0.2s ease;
+}
+
+.skills-panel:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.card {
+    transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.card:hover {
+    transform: translateY(-2px);
 }
