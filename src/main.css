@@ -7,6 +7,16 @@ body {
     min-height: 100vh;
 }
 
+/* #root (généré par React) est un enfant flex de body à côté de la
+   sidebar. Sans flex: 1, il se contracte à son contenu au lieu de
+   remplir l'espace restant, ce qui fait que "100%" dans main
+   (width: calc(100% - 24vw)) référence sa propre largeur contractée
+   plutôt que celle de body. */
+#root {
+    flex: 1;
+    min-width: 0;
+}
+
 *,
 *::before,
 *::after {
@@ -127,6 +137,20 @@ article {
     padding-top: 2vh;
 }
 
+/* Sur les grands écrans, le contenu ne doit pas s'étirer indéfiniment
+   vers la droite : on le borne à une largeur de lecture confortable
+   et on le centre dans l'espace disponible à côté de la sidebar.
+   width: 100% est nécessaire car certaines sections (.projets,
+   .experiences) redéfinissent flex-direction: row sur article, ce qui
+   sans largeur explicite le fait se contracter à son contenu. */
+.title,
+article {
+    width: 100%;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 article p,
 article i,
 article ul,
@@ -159,12 +183,10 @@ article {
 }
 
 .experiences article {
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     column-gap: 2vw;
-}
-
-.experiences .item {
-    width: 42vw;
+    align-content: start;
 }
 
 .hobbys article {
@@ -207,11 +229,6 @@ li,
     justify-content: center;
 }
 
-.projets article>* {
-    margin-bottom: 1em;
-    width: 20vw;
-}
-
 .projets article {
     column-gap: 2vw;
     display: flex;
@@ -223,9 +240,10 @@ li,
 .card {
     background-color: transparent;
     height: 20vh;
+    margin-bottom: 1em;
     padding: 0.4%;
     perspective: 1000px;
-    width: 20vw;
+    width: calc(25% - 1.5vw);
 }
 
 .flip-card-inner {
@@ -256,8 +274,9 @@ li,
 }
 
 .flip-card-front img {
-    width: 20vw;
-    height: 20vh;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .flip-card-back {
@@ -275,7 +294,7 @@ li,
     flex-direction: column;
     height: 6vh;
     justify-content: space-around;
-    width: 18vw;
+    width: 90%;
 }
 
 /* Media Queries */
@@ -373,6 +392,10 @@ li,
         align-items: center;
         flex-direction: column;
     }
+
+    .experiences article {
+        grid-template-columns: 1fr;
+    }
 }
 
 h1, h2, h3, h4, .title_item, .subtitle {
@@ -388,12 +411,6 @@ h1, h2, h3, h4, .title_item, .subtitle {
 .devweb--compact article {
     justify-content: flex-start;
     gap: 1.2vh;
-}
-
-.skills-cards {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5vw;
 }
 
 .skill-card {
@@ -427,35 +444,7 @@ h1, h2, h3, h4, .title_item, .subtitle {
     line-height: 1.1;
 }
 
-/* --- Sélecteur temporaire de layouts (démo) --- */
-
-.variant-switch {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5em;
-    margin-bottom: 1.5vh;
-}
-
-.variant-switch button {
-    font-family: 'IBM Plex Sans', sans-serif;
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    padding: 0.4em 1em;
-    border: 1px solid #1c1a17;
-    border-radius: 999px;
-    background: transparent;
-    color: #1c1a17;
-    cursor: pointer;
-}
-
-.variant-switch button.active {
-    background: #c96f34;
-    border-color: #c96f34;
-    color: #faf7f2;
-}
-
-/* --- Layout panneaux façon dashboard --- */
+/* --- Panneaux de compétences façon dashboard --- */
 
 .skills-panels {
     display: grid;
@@ -495,43 +484,6 @@ h1, h2, h3, h4, .title_item, .subtitle {
 .skills-panel .skill-card__icon {
     font-size: 1rem;
 }
-
-/* --- Layout grille unique, accent couleur par catégorie --- */
-
-.skills-coded__legend {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1em;
-    margin-bottom: 1.2vh;
-    font-size: 0.75rem;
-}
-
-.legend-dot {
-    position: relative;
-    padding-left: 1.2em;
-}
-
-.legend-dot::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: currentColor;
-}
-
-.skill-card--lang { border-top: 3px solid #c96f34; }
-.skill-card--framework { border-top: 3px solid #4479A1; }
-.skill-card--tool { border-top: 3px solid #47A248; }
-.skill-card--db { border-top: 3px solid #777BB4; }
-
-.legend-dot.skill-card--lang { color: #c96f34; }
-.legend-dot.skill-card--framework { color: #4479A1; }
-.legend-dot.skill-card--tool { color: #47A248; }
-.legend-dot.skill-card--db { color: #777BB4; }
 
 /* --- Compétences secondaires : bloc compact sous les cartes --- */
 
