@@ -40,17 +40,9 @@ export default function Sidebar() {
         <NavLink to="/presentation" className={navLinkClass} onClick={closeSidebarOnMobile}>
           Présentation
         </NavLink>
-        <div className="menu_competences">
+        <NavLink to="/competences" className={navLinkClass} onClick={closeSidebarOnMobile}>
           Compétences
-          <div className="sub_menu">
-            <NavLink to="/devweb" className={navLinkClass} onClick={closeSidebarOnMobile}>
-              Développement Web
-            </NavLink>
-            <NavLink to="/autres" className={navLinkClass} onClick={closeSidebarOnMobile}>
-              Autres
-            </NavLink>
-          </div>
-        </div>
+        </NavLink>
         <NavLink to="/experiences" className={navLinkClass} onClick={closeSidebarOnMobile}>
           Expériences
         </NavLink>

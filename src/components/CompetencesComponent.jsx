@@ -1,12 +1,12 @@
 import React from "react";
 import SectionTitle from "./SectionTitle";
-import { skills } from "../data/resumeData";
+import { skills, otherSkills } from "../data/resumeData";
 import { skillIcons } from "./skillIcons";
 
-export default function DevWeb() {
+export default function Competences() {
   return (
     <section className="devweb">
-      <SectionTitle heading="Développeur Web" className="title_item" />
+      <SectionTitle heading="Compétences" className="title_item" />
       <article>
         <div className="skills-cards">
           {skills.map((skill) => {
@@ -22,6 +22,17 @@ export default function DevWeb() {
             );
           })}
         </div>
+
+        {otherSkills.map((group) => (
+          <div className="item" key={group.title}>
+            <h3 className="subtitle">{group.title}</h3>
+            <ul>
+              {group.items.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </div>
+        ))}
       </article>
     </section>
   );
