@@ -1,9 +1,21 @@
-#root {
-    color: #414977;
+body {
+    color: #242220;
+    background-color: #faf7f2;
     display: flex;
     flex-direction: row;
-    font-family: Optima, sans-serif;
+    font-family: 'IBM Plex Sans', Optima, sans-serif;
     overflow: hidden;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+.title,
+article {
+    overflow-wrap: break-word;
 }
 
 body,
@@ -21,13 +33,13 @@ ul {
 }
 
 a {
-    color: #414977;
+    color: #c96f34;
 }
 
 .sidebar {
     align-items: center;
-    background-color: #414977;
-    color: white;
+    background-color: #1c1a17;
+    color: #f3efe8;
     display: flex;
     flex-direction: column;
     height: 100vh;
@@ -87,6 +99,12 @@ a {
 
 .nav-link {
     cursor: pointer;
+    color: inherit;
+    text-decoration: none;
+}
+
+.nav-link.active {
+    color: #c96f34;
 }
 
 .sub_menu {
@@ -104,7 +122,7 @@ main {
     flex-direction: column;
     margin-left: 24vw;
     padding-top: 5vh;
-    width: 100%;
+    width: calc(100% - 24vw);
 }
 
 section {
@@ -155,6 +173,10 @@ article {
     column-gap: 2vw;
 }
 
+.experiences .item {
+    width: 42vw;
+}
+
 .hobbys article {
     height: 30vh;
 }
@@ -193,6 +215,11 @@ li,
     display: flex;
     flex-direction: row;
     justify-content: center;
+}
+
+.projets article>* {
+    margin-bottom: 1em;
+    width: 20vw;
 }
 
 .projets article {
@@ -245,8 +272,8 @@ li,
 
 .flip-card-back {
     align-items: center;
-    background-color: #ffcc33;
-    color: #414977;
+    background-color: #c96f34;
+    color: #1c1a17;
     display: flex;
     justify-content: center;
     transform: rotateY(180deg);
@@ -261,29 +288,17 @@ li,
     width: 18vw;
 }
 
-.flip-card-text small {
-    margin-bottom: 2vh;
-}
-
 /* Media Queries */
 
-@media only screen and (max-width: 750px) {
-
+@media (max-width: 768px) {
     main {
         margin-left: initial;
         margin-top: 10vh;
         padding-top: 30vh;
     }
 
-    body,
-    main {
-        overflow: initial;
-    }
-
     main.haut {
         padding-top: initial;
-        position: relative;
-        z-index: 1;
     }
 
     .sidebar {
@@ -292,11 +307,11 @@ li,
         left: 0;
         width: 100vw;
         height: auto;
+        z-index: 10;
         display: flex;
         align-items: center;
         justify-content: space-between;
         padding: 0;
-        z-index: 2;
     }
 
     .sidebar-header {
@@ -313,17 +328,15 @@ li,
 
     .sidebar-nav {
         align-items: center;
-        background-color: #414977;
+        background-color: #1c1a17;
         max-height: 0;
         overflow: hidden;
         transition: max-height 0.3s ease;
         width: 100vw;
-        height: 50vh;
-        z-index: 3;
     }
 
     .sidebar-nav.active {
-        max-height: 100vh;
+        max-height: 500px;
     }
 
     .prenomnom {
@@ -346,10 +359,6 @@ li,
         outline: none;
     }
 
-    .title {
-        padding-top: 4vh;
-    }
-
     .title_item {
         margin-bottom: initial;
     }
@@ -358,31 +367,12 @@ li,
         align-items: center;
         flex-direction: column;
     }
+}
 
-    .experiences article {
-        flex-wrap: initial;
-    }
+h1, h2, h3, h4, .title_item, .subtitle {
+    font-family: 'Space Grotesk', 'IBM Plex Sans', sans-serif;
+}
 
-    .projets article>* {
-        margin-bottom: 1em;
-        width: 40vw;
-    }
-
-    .card {
-        background-color: transparent;
-        height: 15vh;
-        padding: 0.4%;
-        perspective: 1000px;
-        width: 40vw;
-    }
-
-    .flip-card-front img {
-        width: 40vw;
-        height: 15vh;
-    }
-
-    .flip-card-text {
-        font-size: small;
-        height: 15vh;
-    }
+.subtitle, .table_title {
+    color: #c96f34;
 }

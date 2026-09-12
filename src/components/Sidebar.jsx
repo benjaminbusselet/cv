@@ -1,32 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
 import profile from "../assets/profile.jpg";
 import menuIcon from "../assets/menu.png";
+import useIsMobile from "../hooks/useIsMobile";
 
-export default function Sidebar({ setActiveComponent, onClick }) {
-  const [isMobile, setIsMobile] = useState(false);
-  const [isSidebarActive, setIsSidebarActive] = useState(false);
+const navLinkClass = ({ isActive }) => `nav-link ${isActive ? "active" : ""}`;
 
-  useEffect(() => {
-    const handleWindowResize = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    window.addEventListener("resize", handleWindowResize);
-    handleWindowResize();
-    return () => {
-      window.removeEventListener("resize", handleWindowResize);
-    };
-  }, []);
+export default function Sidebar() {
+  const isMobile = useIsMobile();
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
-  const handleClick = () => {
-    setIsSidebarActive(!isSidebarActive);
-    onClick();
-  };
-
-  const handleNavLinkClick = (component) => {
-    setActiveComponent(component);
-    if (isMobile) {
-      setIsSidebarActive(false); // Cacher la sidebar sur mobile après un clic sur un nav-link
-    }
+  const closeSidebarOnMobile = () => {
+    if (isMobile) setIsSidebarOpen(false);
   };
 
   return (
@@ -43,63 +28,38 @@ export default function Sidebar({ setActiveComponent, onClick }) {
         {isMobile && (
           <div className="button">
             <img
-              id="toggleButton"
               className="toggle-button"
               src={menuIcon}
-              alt="Button Toggle"
-              onClick={handleClick}
+              alt="Ouvrir le menu"
+              onClick={() => setIsSidebarOpen((prev) => !prev)}
             />
           </div>
         )}
       </div>
-      <div className={`sidebar-nav ${isSidebarActive ? "active" : ""}`}>
-        <div
-          className="nav-link"
-          onClick={() => handleNavLinkClick("presentation")}
-          data-value="presentation"
-        >
+      <div className={`sidebar-nav ${isSidebarOpen ? "active" : ""}`}>
+        <NavLink to="/presentation" className={navLinkClass} onClick={closeSidebarOnMobile}>
           Présentation
-        </div>
-        <div className={`menu_competences ${isSidebarActive ? "active" : ""}`}>
+        </NavLink>
+        <div className="menu_competences">
           Compétences
-          <div className={`sub_menu ${isSidebarActive ? "active" : ""}`}>
-            <div
-              className="nav-link"
-              onClick={() => handleNavLinkClick("devweb")}
-              data-value="devweb"
-            >
+          <div className="sub_menu">
+            <NavLink to="/devweb" className={navLinkClass} onClick={closeSidebarOnMobile}>
               Développement Web
-            </div>
-            <div
-              className="nav-link"
-              onClick={() => handleNavLinkClick("autres")}
-              data-value="autres"
-            >
+            </NavLink>
+            <NavLink to="/autres" className={navLinkClass} onClick={closeSidebarOnMobile}>
               Autres
-            </div>
+            </NavLink>
           </div>
         </div>
-        <div
-          className="nav-link"
-          onClick={() => handleNavLinkClick("experiences")}
-          data-value="experiences"
-        >
+        <NavLink to="/experiences" className={navLinkClass} onClick={closeSidebarOnMobile}>
           Expériences
-        </div>
-        <div
-          className="nav-link"
-          onClick={() => handleNavLinkClick("formations")}
-          data-value="formations"
-        >
+        </NavLink>
+        <NavLink to="/formations" className={navLinkClass} onClick={closeSidebarOnMobile}>
           Formations
-        </div>
-        <div
-          className="nav-link"
-          onClick={() => handleNavLinkClick("projets")}
-          data-value="projets"
-        >
+        </NavLink>
+        <NavLink to="/projets" className={navLinkClass} onClick={closeSidebarOnMobile}>
           Projets
-        </div>
+        </NavLink>
       </div>
     </nav>
   );

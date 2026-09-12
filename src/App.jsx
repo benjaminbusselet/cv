@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+import { Routes, Route, Navigate } from "react-router-dom";
 import Presentation from "./components/PresentationComponent";
 import DevWeb from "./components/DevWebComponent";
 import Experiences from "./components/ExperiencesComponent";
@@ -6,55 +7,27 @@ import Formations from "./components/FormationsComponent";
 import Autres from "./components/AutresComponent";
 import Sidebar from "./components/Sidebar";
 import Projets from "./components/ProjetsComponent";
+import useIsMobile from "./hooks/useIsMobile";
 
-function App() {
-  const [isMobile, setIsMobile] = useState(false);
-  const [activeComponent, setActiveComponent] = useState("presentation");
-
-  const renderActiveComponent = () => {
-    switch (activeComponent) {
-      case "presentation":
-        return <Presentation />;
-      case "devweb":
-        return <DevWeb />;
-      case "autres":
-        return <Autres />;
-      case "experiences":
-        return <Experiences />;
-      case "formations":
-        return <Formations />;
-      case "projets":
-        return <Projets />;
-      default:
-        return null;
-    }
-  };
-
-  useEffect(() => {
-    const handleWindowResize = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-
-    window.addEventListener("resize", handleWindowResize);
-    handleWindowResize();
-    return () => {
-      window.removeEventListener("resize", handleWindowResize);
-    };
-  }, [activeComponent]);
-
-  const handleClick = () => {
-    setIsMobile(!isMobile);
-  };
+export default function App() {
+  const isMobile = useIsMobile();
 
   return (
     <>
-      <Sidebar setActiveComponent={setActiveComponent} onClick={handleClick} />
+      <Sidebar />
 
-      <main className={`${isMobile ? "haut" : ""}`}>
-        {renderActiveComponent()}
+      <main className={isMobile ? "haut" : ""}>
+        <Routes>
+          <Route path="/" element={<Navigate to="/presentation" replace />} />
+          <Route path="/presentation" element={<Presentation />} />
+          <Route path="/devweb" element={<DevWeb />} />
+          <Route path="/autres" element={<Autres />} />
+          <Route path="/experiences" element={<Experiences />} />
+          <Route path="/formations" element={<Formations />} />
+          <Route path="/projets" element={<Projets />} />
+          <Route path="*" element={<Navigate to="/presentation" replace />} />
+        </Routes>
       </main>
     </>
   );
 }
-
-export default App;

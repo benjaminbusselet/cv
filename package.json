@@ -2,11 +2,13 @@
   "name": "cv",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "homepage": "https://benjaminbusselet.github.io/cv",
   "dependencies": {
     "@vitejs/plugin-react": "^6.0.2",
     "react": "latest",
     "react-dom": "latest",
+    "react-router-dom": "^7.18.3",
     "vite": "^8.0.13",
     "web-vitals": "latest"
   },
