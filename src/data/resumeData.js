@@ -2,11 +2,11 @@
 
 export const profile = {
   name: "Benjamin Busselet",
-  title: "Développeur Web",
+  title: "Développeur Web Front-End / Full-Stack",
   tagline:
-    "Après 10 ans dans la maintenance informatique, je me suis reconverti dans le développement web afin de mettre en pratique ma créativité.",
+    "Développeur web front-end / full-stack (React, Node.js, Next.js), reconverti après 10 ans en maintenance informatique. Actuellement Solution Expert chez Smart Global Governance, où je développe des scripts Lua et intègre la plateforme Corteza au quotidien — assisté par Claude pour accélérer la production.",
   availability:
-    "Ouvert aux opportunités Développeur Front-End / Full-Stack en CDI, Alpes-Maritimes.",
+    "Ouvert aux opportunités développeur front-end / full-stack en CDI, Alpes-Maritimes.",
   contacts: [
     { icon: "fas fa-phone-square-alt", label: "06 22 15 43 99" },
     {
@@ -16,13 +16,21 @@ export const profile = {
     },
     {
       icon: "fab fa-linkedin",
-      label: "Profil Linkedin",
+      label: "linkedin.com/in/benjaminbusselet",
       href: "http://linkedin.com/in/benjamin-busselet",
       external: true,
     },
-    { icon: "fas fa-map-marker-alt", label: "Alpes-Maritimes (06)" },
+    {
+      icon: "fas fa-globe",
+      label: "benjaminbusselet.github.io/cv",
+      href: "https://benjaminbusselet.github.io/cv",
+      external: true,
+    },
+    { icon: "fas fa-map-marker-alt", label: "Alpes-Maritimes (06) — Permis B, véhicule" },
   ],
 };
+
+export const softSkills = ["Esprit d'équipe", "Organisé", "Ouvert d'esprit"];
 
 export const skillsFront = [
   { name: "HTML5", level: 5 },
@@ -80,7 +88,7 @@ export const experiences = [
   {
     period: "Janv. 2024 - présent",
     company: "Smart Global Governance",
-    role: "Solution Expert & Customer Support Specialist — développement de scripts Lua, intégration Corteza, support technique avancé. Dev assisté par IA (Claude, Cowork).",
+    role: "Solution Expert & Customer Support Specialist — développement de scripts Lua pour l'automatisation d'outils internes, intégration et configuration de la plateforme low-code Corteza, support technique avancé.",
   },
   {
     period: "Juil. 2023 - févr. 2024",
@@ -93,47 +101,32 @@ export const experiences = [
     role: "Développeur d'intégration — développement produit en JavaScript",
   },
   {
-    period: "2020-2022",
+    period: "2020 - févr. 2022",
     company: "PureSophro (Freelance)",
-    role: "Développeur Web — front et back (React, Next.js, MongoDB)",
+    role: "Développeur web — développement front et back du site PureSophro (React, Next.js, MongoDB), maintenance et optimisation",
   },
   {
-    period: "2015-2017",
-    company: "Teledom Sécurité",
-    role: "Technicien Support Informatique",
-  },
-  {
-    period: "2007-2013",
-    company: "Education Nationale (Collèges)",
-    role: "Gestion Du Parc Informatique",
-  },
-  {
-    period: "2004-2007",
-    company: "Auto-Entrepreneur",
-    role: "Formation et Maintenance",
-  },
-  {
-    period: "2001-2003",
-    company: "Extreme Agency",
-    role: "Gestion Du Parc Informatique",
+    period: "2001-2020",
+    company: "Technicien maintenance & helpdesk (Antibes / Suresnes)",
+    role: "15 ans en gestion de parcs informatiques et support utilisateurs (100 à 300 postes), avant la reconversion vers le développement web",
   },
 ];
 
 export const formations = [
   {
     period: "2017-2020",
-    title: "OpenClassrooms - Bac+3",
-    detail: "Développeur d'Application - Frontend",
+    title: "Master 1 — Développeur d'application",
+    detail: "OpenClassrooms, Paris",
   },
   {
     period: "2014",
-    title: "Validation Des Acquis - Bac+2",
-    detail: "Services Informatique Aux Organisations",
+    title: "BTS Services informatiques aux organisations",
+    detail: "Lycée Pro Jacques Dolle, Antibes",
   },
   {
     period: "2002",
-    title: "CFA en Alternance - Bac",
-    detail: "Technicien de Maintenance Informatique",
+    title: "Bac — Technicien maintenance informatique",
+    detail: "IPI Institut Poly Informatique, Paris",
   },
 ];
 

@@ -363,6 +363,22 @@ li,
         margin-bottom: initial;
     }
 
+    .title {
+        line-height: normal;
+    }
+
+    .title h3 {
+        margin-top: 1vh;
+    }
+
+    .contacts .row {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.5em;
+        line-height: normal;
+        margin-bottom: 1.5vh;
+    }
+
     .languages_grid {
         align-items: center;
         flex-direction: column;
