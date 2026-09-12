@@ -473,6 +473,17 @@ li,
     .experiences article {
         grid-template-columns: 1fr;
     }
+
+    /* Le titre de section est centré (.title { text-align: center }) ;
+       sans ça, le texte d'intro et la phrase de disponibilité restent
+       alignés à gauche avec un vide visuel à droite, incohérent avec
+       le titre au-dessus. Contacts et Savoir-être restent à gauche :
+       une liste à puces ou des lignes icône+texte centrées se lisent
+       moins bien qu'un paragraphe centré. */
+    .presentation article > p,
+    .presentation article > h3:first-of-type {
+        text-align: center;
+    }
 }
 
 h1, h2, h3, h4, .title_item, .subtitle {
