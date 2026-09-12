@@ -76,8 +76,8 @@ export const skillGroups = [
 
 export const otherSkills = [
   {
-    title: "Dev Assisté par IA",
-    items: ["Claude (Cowork, Claude Code) — usage quotidien"],
+    title: "Développement assisté par IA",
+    items: ["Usage quotidien d'outils IA (Claude, Cowork, Claude Code) pour accompagner le développement"],
   },
   {
     title: "Compétences Secondaires",
