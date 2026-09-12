@@ -32,24 +32,48 @@ export const profile = {
 
 export const softSkills = ["Esprit d'équipe", "Organisé", "Ouvert d'esprit"];
 
-// Ordonné par pertinence sur le marché du travail actuel (stack JS
-// moderne en tête, technologies legacy/niche en fin de liste), plutôt
-// que par catégorie technique.
-export const skills = [
-  { name: "React", level: 4 },
-  { name: "Javascript", level: 5 },
-  { name: "NodeJS", level: 4 },
-  { name: "NextJS", level: 4 },
-  { name: "HTML5", level: 5 },
-  { name: "CSS", level: 5 },
-  { name: "PHP", level: 4 },
-  { name: "MongoDB", level: 4 },
-  { name: "MySQL", level: 4 },
-  { name: "Jquery", level: 5 },
-  { name: "Bootstrap", level: 5 },
-  { name: "ExpressJS", level: 4 },
-  { name: "SQL", level: 4 },
-  { name: "MsSQL", level: 4 },
+// Groupées par nature réelle (langage / framework-librairie / outil /
+// base de données) plutôt qu'en une seule liste plate — un langage et
+// un outil de build ne sont pas des "compétences" comparables. Chaque
+// groupe reste ordonné par pertinence marché actuelle.
+export const skillGroups = [
+  {
+    title: "Langages",
+    skills: [
+      { name: "Javascript" },
+      { name: "HTML5" },
+      { name: "CSS" },
+      { name: "PHP" },
+    ],
+  },
+  {
+    title: "Frameworks & Librairies",
+    skills: [
+      { name: "React" },
+      { name: "NextJS" },
+      { name: "ExpressJS" },
+      { name: "Bootstrap" },
+      { name: "Jquery" },
+    ],
+  },
+  {
+    title: "Outils",
+    skills: [
+      { name: "NodeJS" },
+      { name: "Vite" },
+      { name: "Npm" },
+      { name: "Git" },
+    ],
+  },
+  {
+    title: "Bases de données",
+    skills: [
+      { name: "MongoDB" },
+      { name: "MySQL" },
+      { name: "SQL" },
+      { name: "MsSQL" },
+    ],
+  },
 ];
 
 export const otherSkills = [

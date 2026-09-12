@@ -11,11 +11,14 @@ import {
   SiExpress,
   SiMysql,
   SiMongodb,
+  SiVite,
+  SiNpm,
+  SiGit,
 } from "react-icons/si";
 import { FaDatabase } from "react-icons/fa6";
 
 // Associe chaque techno affichée dans resumeData.js à son icône et à sa
-// couleur de marque (utilisées par la variante "cartes" de DevWebComponent).
+// couleur de marque, utilisées par les cartes de CompetencesComponent.
 export const skillIcons = {
   HTML5: { icon: SiHtml5, color: "#E34F26" },
   CSS: { icon: SiCss, color: "#663399" },
@@ -31,4 +34,7 @@ export const skillIcons = {
   MySQL: { icon: SiMysql, color: "#4479A1" },
   MsSQL: { icon: FaDatabase, color: "#CC2927" },
   MongoDB: { icon: SiMongodb, color: "#47A248" },
+  Vite: { icon: SiVite, color: "#646CFF" },
+  Npm: { icon: SiNpm, color: "#CB3837" },
+  Git: { icon: SiGit, color: "#F05032" },
 };

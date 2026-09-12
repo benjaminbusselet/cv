@@ -422,9 +422,134 @@ h1, h2, h3, h4, .title_item, .subtitle {
     text-align: center;
 }
 
+/* --- Sélecteur temporaire de layouts (démo) --- */
+
+.variant-switch {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5em;
+    margin-bottom: 3vh;
+}
+
+.variant-switch button {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.5em 1.2em;
+    border: 1px solid #1c1a17;
+    border-radius: 999px;
+    background: transparent;
+    color: #1c1a17;
+    cursor: pointer;
+}
+
+.variant-switch button.active {
+    background: #c96f34;
+    border-color: #c96f34;
+    color: #faf7f2;
+}
+
+/* --- Layout A : sections empilées --- */
+
+.skills-stacked__group {
+    margin-bottom: 3vh;
+}
+
+.skills-stacked__title {
+    color: #c96f34;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 1.5vh;
+}
+
+/* --- Layout B : panneaux façon dashboard --- */
+
+.skills-panels {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5vw;
+}
+
+.skills-panel {
+    background: #f3efe8;
+    border: 1px solid rgba(28, 26, 23, 0.08);
+    border-radius: 16px;
+    padding: 1.5vw;
+}
+
+.skills-panel__title {
+    color: #c96f34;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 1.5vh;
+}
+
+.skills-panel__cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8vw;
+}
+
+.skills-panel .skill-card {
+    background: #faf7f2;
+    width: 6.5vw;
+    height: 6.5vw;
+    min-width: 84px;
+    min-height: 84px;
+}
+
+/* --- Layout C : grille unique, accent couleur par catégorie --- */
+
+.skills-coded__legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.2em;
+    margin-bottom: 2vh;
+    font-size: 0.85rem;
+}
+
+.legend-dot {
+    position: relative;
+    padding-left: 1.3em;
+}
+
+.legend-dot::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: currentColor;
+}
+
+.skill-card--lang { border-top: 3px solid #c96f34; }
+.skill-card--framework { border-top: 3px solid #4479A1; }
+.skill-card--tool { border-top: 3px solid #47A248; }
+.skill-card--db { border-top: 3px solid #777BB4; }
+
+.legend-dot.skill-card--lang { color: #c96f34; }
+.legend-dot.skill-card--framework { color: #4479A1; }
+.legend-dot.skill-card--tool { color: #47A248; }
+.legend-dot.skill-card--db { color: #777BB4; }
+
 @media (max-width: 768px) {
     .skill-card {
         width: 22vw;
         height: 22vw;
+    }
+
+    .skills-panels {
+        grid-template-columns: 1fr;
+    }
+
+    .skills-panel .skill-card {
+        width: 20vw;
+        height: 20vw;
     }
 }
