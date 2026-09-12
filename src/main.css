@@ -4,7 +4,7 @@ body {
     display: flex;
     flex-direction: row;
     font-family: 'IBM Plex Sans', Optima, sans-serif;
-    overflow: hidden;
+    min-height: 100vh;
 }
 
 *,
