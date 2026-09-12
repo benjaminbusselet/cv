@@ -16,7 +16,7 @@ export const profile = {
     },
     {
       icon: "fab fa-linkedin",
-      label: "linkedin.com/in/benjaminbusselet",
+      label: "linkedin.com/in/benjamin-busselet",
       href: "http://linkedin.com/in/benjamin-busselet",
       external: true,
     },
