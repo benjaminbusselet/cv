@@ -131,16 +131,15 @@ export const formations = [
   },
 ];
 
+// Ordonné par pertinence croissante par rapport au reste du CV (stack
+// React/Vite moderne, expérience pro récente) : projets 2021 vanilla
+// en premier, PureSophro (site client réel, lié à l'expérience pro)
+// et tv_sports (stack la plus actuelle, CI/CD) en dernier.
 export const projects = [
   {
-    image: "6.png",
-    description: "Agrégateur perso de programmes TV sport (React 19, Vite 7, pipeline Node.js, CI/CD)",
-    href: "https://benjaminbusselet.github.io/tv_sports/",
-  },
-  {
-    image: "1.png",
-    description: "Un site OnePage 100% responsive pour un festival",
-    href: "https://github.com/benjaminbusselet/lesfilmsdepleinair_react",
+    image: "4.png",
+    description: "Un site d'avis de restaurants en JavaScript",
+    href: "https://github.com/benjaminbusselet/kelresto",
   },
   {
     image: "3.png",
@@ -148,13 +147,18 @@ export const projects = [
     href: "https://github.com/benjaminbusselet/laravsnathan",
   },
   {
-    image: "4.png",
-    description: "Un site d'avis de restaurants en JavaScript",
-    href: "https://github.com/benjaminbusselet/kelresto",
+    image: "1.png",
+    description: "Un site OnePage 100% responsive pour un festival",
+    href: "https://github.com/benjaminbusselet/lesfilmsdepleinair_react",
   },
   {
     image: "5.png",
     description: "Un site de prise de rendez-vous",
     href: "https://www.puresophro.com",
+  },
+  {
+    image: "6.png",
+    description: "Agrégateur perso de programmes TV sport (React 19, Vite 7, pipeline Node.js, CI/CD)",
+    href: "https://benjaminbusselet.github.io/tv_sports/",
   },
 ];
