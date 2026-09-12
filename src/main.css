@@ -393,106 +393,7 @@ h1, h2, h3, h4, .title_item, .subtitle {
     color: #c96f34;
 }
 
-/* --- Sélecteur temporaire de variantes (démo) --- */
-
-.variant-switch {
-    display: flex;
-    gap: 0.5em;
-    margin-bottom: 3vh;
-}
-
-.variant-switch button {
-    font-family: 'IBM Plex Sans', sans-serif;
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    padding: 0.5em 1.2em;
-    border: 1px solid #1c1a17;
-    border-radius: 999px;
-    background: transparent;
-    color: #1c1a17;
-    cursor: pointer;
-}
-
-.variant-switch button.active {
-    background: #c96f34;
-    border-color: #c96f34;
-    color: #faf7f2;
-}
-
-/* --- Variante A : tags --- */
-
-.skills-tags__group {
-    margin-bottom: 3vh;
-}
-
-.skills-tags__title {
-    color: #c96f34;
-    font-size: 1rem;
-    margin-bottom: 1.5vh;
-}
-
-.skills-tags__list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.6em;
-}
-
-.skill-tag {
-    display: inline-block;
-    padding: 0.5em 1.1em;
-    border-radius: 999px;
-    background: #f3efe8;
-    border: 1px solid rgba(28, 26, 23, 0.12);
-    font-size: 0.9rem;
-    transition: border-color 0.2s ease, background 0.2s ease;
-}
-
-.skill-tag:hover {
-    border-color: #c96f34;
-    background: #faf1e8;
-}
-
-/* --- Variante B : barres de progression --- */
-
-.skills-bars {
-    display: flex;
-    flex-direction: column;
-    gap: 3vh;
-    max-width: 40vw;
-}
-
-.skills-bars__title {
-    color: #c96f34;
-    font-size: 1rem;
-    margin-bottom: 1.5vh;
-}
-
-.skill-bar {
-    margin-bottom: 1.2vh;
-}
-
-.skill-bar__label {
-    font-size: 0.9rem;
-    margin-bottom: 0.4vh;
-}
-
-.skill-bar__track {
-    width: 100%;
-    height: 8px;
-    border-radius: 999px;
-    background: #f3efe8;
-    overflow: hidden;
-}
-
-.skill-bar__fill {
-    height: 100%;
-    border-radius: 999px;
-    background: #c96f34;
-    transition: width 0.6s ease;
-}
-
-/* --- Variante C : cartes avec icônes --- */
+/* --- Compétences techniques : cartes avec icônes --- */
 
 .skills-cards {
     display: flex;
@@ -531,10 +432,6 @@ h1, h2, h3, h4, .title_item, .subtitle {
 }
 
 @media (max-width: 768px) {
-    .skills-bars {
-        max-width: 100%;
-    }
-
     .skill-card {
         width: 22vw;
         height: 22vw;

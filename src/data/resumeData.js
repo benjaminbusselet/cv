@@ -32,27 +32,24 @@ export const profile = {
 
 export const softSkills = ["Esprit d'équipe", "Organisé", "Ouvert d'esprit"];
 
-export const skillsFront = [
+// Ordonné par pertinence sur le marché du travail actuel (stack JS
+// moderne en tête, technologies legacy/niche en fin de liste), plutôt
+// que par catégorie technique.
+export const skills = [
+  { name: "React", level: 4 },
+  { name: "Javascript", level: 5 },
+  { name: "NodeJS", level: 4 },
+  { name: "NextJS", level: 4 },
   { name: "HTML5", level: 5 },
   { name: "CSS", level: 5 },
-  { name: "Bootstrap", level: 5 },
-  { name: "Javascript", level: 5 },
-  { name: "Jquery", level: 5 },
-  { name: "React", level: 4 },
-  { name: "NextJS", level: 4 },
-];
-
-export const skillsBack = [
   { name: "PHP", level: 4 },
-  { name: "NodeJS", level: 4 },
-  { name: "ExpressJS", level: 4 },
-];
-
-export const skillsDatabase = [
-  { name: "SQL", level: 4 },
-  { name: "MySQL", level: 4 },
-  { name: "MsSQL", level: 4 },
   { name: "MongoDB", level: 4 },
+  { name: "MySQL", level: 4 },
+  { name: "Jquery", level: 5 },
+  { name: "Bootstrap", level: 5 },
+  { name: "ExpressJS", level: 4 },
+  { name: "SQL", level: 4 },
+  { name: "MsSQL", level: 4 },
 ];
 
 export const otherSkills = [
