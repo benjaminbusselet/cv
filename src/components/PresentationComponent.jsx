@@ -1,6 +1,7 @@
 import React from "react";
 import SectionTitle from "./SectionTitle";
 import { profile, softSkills } from "../data/resumeData";
+import cvPdf from "../assets/files/cv.pdf";
 
 export default function Presentation() {
   return (
@@ -28,9 +29,12 @@ export default function Presentation() {
               )}
             </div>
           ))}
-          {/* Lien PDF retiré temporairement : le cv.pdf existant est obsolète
-              (anciennes dates, sans Lua/Corteza/Claude). À remettre une fois
-              une version à jour disponible. */}
+          <div className="row" key="cv-pdf">
+            <i className="fas fa-file-pdf" aria-hidden="true"></i>
+            <a href={cvPdf} target="_blank" rel="noopener noreferrer" download="CV_Benjamin_Busselet.pdf">
+              {" "}Télécharger le CV (PDF)
+            </a>
+          </div>
         </div>
         <h3 className="subtitle">Savoir-être</h3>
         <ul>
