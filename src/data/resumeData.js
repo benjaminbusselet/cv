@@ -120,7 +120,7 @@ export const experiences = [
     period: { fr: "2020 - févr. 2022", en: "2020 - Feb. 2022" },
     company: "PureSophro",
     meta: { fr: "Antibes · Freelance", en: "Antibes, France · Freelance" },
-    title: { fr: "Développeur web", en: "Web developer" },
+    title: { fr: "Développeur web (associé)", en: "Web developer (partner)" },
     items: [
       {
         fr: "Développement front et back du site (React, Next.js, MongoDB), maintenance et optimisation",
