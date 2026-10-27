@@ -6,6 +6,7 @@
   "homepage": "https://benjaminbusselet.github.io/cv",
   "dependencies": {
     "@vitejs/plugin-react": "^6.0.2",
+    "framer-motion": "^12.43.0",
     "react": "latest",
     "react-dom": "latest",
     "react-icons": "^5.7.0",
@@ -17,7 +18,8 @@
     "start": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist",
+    "cv:pdf": "node scripts/build-cv-pdf.mjs"
   },
   "devDependencies": {
     "gh-pages": "^6.2.0"

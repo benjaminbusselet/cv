@@ -1,33 +1,47 @@
 // Données du CV, centralisées pour éviter la duplication dans les composants.
+// Un texte traduit s'écrit { fr, en } ; un texte identique dans les deux
+// langues (nom propre, techno) reste une simple chaîne. Voir tr() dans i18n.jsx.
 
 export const profile = {
   name: "Benjamin Busselet",
-  title: "Développeur Web Front-End / Full-Stack",
-  tagline:
-    "Développeur web front-end / full-stack (React, Node.js, Next.js), reconverti après 10 ans en maintenance informatique. Actuellement Solution Expert chez Smart Global Governance, où je développe des scripts Lua et intègre la plateforme Corteza au quotidien — assisté par Claude pour accélérer la production.",
-  availability:
-    "Ouvert aux opportunités développeur front-end / full-stack en CDI, télétravail full ou hybride.",
-  contacts: [
-    { icon: "fas fa-phone-square-alt", label: "06 22 15 43 99" },
-    {
-      icon: "fas fa-envelope",
-      label: "benjamin.busselet@icloud.com",
-      href: "mailto:benjamin.busselet@icloud.com",
-    },
-    {
-      icon: "fab fa-linkedin",
-      label: "linkedin.com/in/benjamin-busselet",
-      href: "http://linkedin.com/in/benjamin-busselet",
-      external: true,
-    },
-    {
-      icon: "fas fa-map-marker-alt",
-      label: "Alpes-Maritimes (06) — Télétravail full/hybride — Permis B, véhicule",
-    },
-  ],
+  title: {
+    fr: "Développeur Web Front-End / Full-Stack",
+    en: "Front-End / Full-Stack Web Developer",
+  },
+  hello: {
+    fr: "Bonjour, moi c'est Benjamin.",
+    en: "Hi, I'm Benjamin.",
+  },
+  punchline: {
+    fr: "Du tournevis au clavier : je répare toujours des choses, simplement avec du code maintenant.",
+    en: "From screwdriver to keyboard: I still fix things, only with code now.",
+  },
+  tagline: {
+    fr: "Développeur web front-end / full-stack (React, Node.js, Next.js), reconverti après 10 ans en maintenance informatique. Aujourd'hui Développeur Intégrateur de solutions chez Smart Global Governance, je développe des scripts Lua et intègre la plateforme Corteza au quotidien, avec Claude pour accélérer la production.",
+    en: "Front-end / full-stack web developer (React, Node.js, Next.js), retrained after 10 years in IT maintenance. Now a Solutions Integration Developer at Smart Global Governance, I write Lua scripts and integrate the Corteza platform every day, using Claude to speed up delivery.",
+  },
+  availability: {
+    fr: "Ouvert aux opportunités développeur front-end / full-stack en CDI, télétravail full ou hybride.",
+    en: "Open to permanent front-end / full-stack developer roles, fully remote or hybrid.",
+  },
+  location: {
+    fr: "Alpes-Maritimes (06) · Télétravail full/hybride · Permis B, véhicule",
+    en: "Alpes-Maritimes, France · Remote or hybrid · Driving licence, own car",
+  },
+  phone: "06 22 15 43 99",
+  email: "benjamin.busselet@icloud.com",
+  linkedin: "http://linkedin.com/in/benjamin-busselet",
+  github: "https://github.com/benjaminbusselet",
+  // Endpoint Formspree (https://formspree.io) : vide → le formulaire
+  // ouvre le client mail avec le message pré-rempli.
+  contactEndpoint: "",
 };
 
-export const softSkills = ["Esprit d'équipe", "Organisé", "Ouvert d'esprit"];
+export const softSkills = [
+  { fr: "Esprit d'équipe", en: "Team player" },
+  { fr: "Organisé", en: "Organised" },
+  { fr: "Ouvert d'esprit", en: "Open-minded" },
+];
 
 // Groupées par nature réelle (langage / framework-librairie / outil /
 // base de données) plutôt qu'en une seule liste plate — un langage et
@@ -35,130 +49,239 @@ export const softSkills = ["Esprit d'équipe", "Organisé", "Ouvert d'esprit"];
 // groupe reste ordonné par pertinence marché actuelle.
 export const skillGroups = [
   {
-    title: "Langages",
-    skills: [
-      { name: "Javascript" },
-      { name: "HTML5" },
-      { name: "CSS" },
-      { name: "PHP" },
-      { name: "Lua" },
-    ],
+    title: { fr: "Langages", en: "Languages" },
+    skills: ["Javascript", "HTML5", "CSS", "PHP", "Lua"],
   },
   {
-    title: "Frameworks & Librairies",
-    skills: [
-      { name: "React" },
-      { name: "NextJS" },
-      { name: "ExpressJS" },
-      { name: "Bootstrap" },
-      { name: "Jquery" },
-    ],
+    title: { fr: "Frameworks & Librairies", en: "Frameworks & Libraries" },
+    skills: ["React", "NextJS", "ExpressJS", "Bootstrap", "Jquery"],
   },
   {
-    title: "Outils",
-    skills: [
-      { name: "NodeJS" },
-      { name: "Vite" },
-      { name: "Npm" },
-      { name: "Git" },
-    ],
+    title: { fr: "Outils", en: "Tools" },
+    skills: ["NodeJS", "Vite", "Npm", "Git"],
   },
   {
-    title: "Bases de données",
-    skills: [
-      { name: "MongoDB" },
-      { name: "MySQL" },
-      { name: "SQL" },
-      { name: "MsSQL" },
-    ],
+    title: { fr: "Bases de données", en: "Databases" },
+    skills: ["MongoDB", "MySQL", "SQL", "MsSQL"],
   },
 ];
 
 export const otherSkills = [
   {
-    title: "Développement assisté par IA",
-    items: ["Usage quotidien d'outils IA (Claude, Cowork, Claude Code) pour accompagner le développement"],
+    title: { fr: "Développement assisté par IA", en: "AI-assisted development" },
+    items: [
+      {
+        fr: "Usage quotidien d'outils IA (Claude, Cowork, Claude Code) pour accompagner le développement",
+        en: "Daily use of AI tools (Claude, Cowork, Claude Code) to support development",
+      },
+    ],
   },
   {
-    title: "Compétences Secondaires",
-    items: ["Intégration Corteza (low-code)"],
+    title: { fr: "Compétences secondaires", en: "Secondary skills" },
+    items: [
+      { fr: "Intégration Corteza (low-code), workflows N8N", en: "Corteza integration (low-code), N8N workflows" },
+      { fr: "WordPress", en: "WordPress" },
+    ],
   },
 ];
 
 export const experiences = [
+  // Un seul intitulé pour tout le poste chez SGG (contrat du 03/03/2022 :
+  // « Intégrateur Low code ») ; l'encadrement de 2023 figure en mission.
   {
-    period: "Janv. 2024 - présent",
+    period: { fr: "Mars 2022 - aujourd'hui", en: "Mar. 2022 - present" },
     company: "Smart Global Governance",
-    role: "Solution Expert & Customer Support Specialist — développement de scripts Lua pour l'automatisation d'outils internes, intégration et configuration de la plateforme low-code Corteza, support technique avancé.",
+    meta: { fr: "Valbonne · CDI", en: "Valbonne, France · Permanent" },
+    title: { fr: "Développeur Intégrateur de solutions", en: "Solutions Integration Developer" },
+    items: [
+      {
+        fr: "Développement de scripts Lua pour automatiser et personnaliser les outils internes",
+        en: "Lua scripts automating and customising internal tools",
+      },
+      {
+        fr: "Intégration et configuration de la plateforme low-code Corteza ; workflows N8N",
+        en: "Integration and configuration of the Corteza low-code platform; N8N workflows",
+      },
+      {
+        fr: "Encadrement de l'équipe Professional Services (2023) : pilotage, KPI, suivi des partenaires",
+        en: "Led the Professional Services team (2023): management, KPIs, partner follow-up",
+      },
+      {
+        fr: "Support technique avancé ; développement assisté par IA (Claude, Claude Code)",
+        en: "Advanced technical support; AI-assisted development (Claude, Claude Code)",
+      },
+    ],
   },
   {
-    period: "Juil. 2023 - févr. 2024",
-    company: "Smart Global Governance",
-    role: "Responsable pôle Delivery",
+    period: { fr: "2020 - févr. 2022", en: "2020 - Feb. 2022" },
+    company: "PureSophro",
+    meta: { fr: "Antibes · Freelance", en: "Antibes, France · Freelance" },
+    title: { fr: "Développeur web", en: "Web developer" },
+    items: [
+      {
+        fr: "Développement front et back du site (React, Next.js, MongoDB), maintenance et optimisation",
+        en: "Front and back end development of the website (React, Next.js, MongoDB), maintenance and optimisation",
+      },
+    ],
   },
+  // Carrière d'avant la reconversion résumée en une ligne, sans dates
+  // détaillées : ~10 ans cumulés (certificats de travail 2001-2017).
   {
-    period: "Févr. 2022 - juil. 2023",
-    company: "Smart Global Governance",
-    role: "Développeur d'intégration — développement produit en JavaScript",
-  },
-  {
-    period: "2020 - févr. 2022",
-    company: "PureSophro (Freelance)",
-    role: "Développeur web — développement front et back du site PureSophro (React, Next.js, MongoDB), maintenance et optimisation",
-  },
-  {
-    period: "2001-2020",
-    company: "Technicien maintenance & helpdesk (Antibes / Suresnes)",
-    role: "15 ans en gestion de parcs informatiques et support utilisateurs (100 à 300 postes), avant la reconversion vers le développement web",
+    period: { fr: "Avant la reconversion", en: "Before retraining" },
+    company: { fr: "Maintenance informatique & helpdesk", en: "IT maintenance & helpdesk" },
+    items: [
+      {
+        fr: "10 ans en maintenance informatique et support utilisateurs (parcs de 100 à 300 postes)",
+        en: "10 years in IT maintenance and user support (fleets of 100 to 300 workstations)",
+      },
+    ],
   },
 ];
 
 export const formations = [
   {
-    period: "2017-2020",
-    title: "Master 1 — Développeur d'application",
+    period: "2017 - 2020",
+    title: { fr: "Master 1 : Développeur d'application", en: "Master's level (1st year): Application developer" },
     detail: "OpenClassrooms, Paris",
   },
   {
     period: "2014",
-    title: "BTS Services informatiques aux organisations",
+    title: { fr: "BTS Services informatiques aux organisations", en: "BTS (2-year degree) in IT services for organisations" },
     detail: "Lycée Pro Jacques Dolle, Antibes",
   },
   {
     period: "2002",
-    title: "Bac — Technicien maintenance informatique",
+    title: { fr: "Bac : Technicien maintenance informatique", en: "Baccalauréat: IT maintenance technician" },
     detail: "IPI Institut Poly Informatique, Paris",
   },
 ];
 
-// Ordonné du plus important au moins important par rapport au reste
-// du CV (stack React/Vite moderne, expérience pro récente) : tv_sports
-// (stack la plus actuelle, CI/CD) et PureSophro (site client réel, lié
-// à l'expérience pro) en premier, projets 2021 vanilla en dernier.
-export const projects = [
+// Études de cas : une page chacune (/projet/:slug), dans l'ordre
+// d'importance. Uniquement des faits vérifiables (README des dépôts,
+// expérience pro) ; pas de chiffre de résultat inventé.
+export const caseStudies = [
   {
+    slug: "tv-sports",
     image: "6.png",
-    description: "Agrégateur perso de programmes TV sport (React 19, Vite 7, pipeline Node.js, CI/CD)",
+    title: "TV Sports",
+    kicker: { fr: "Agrégateur de programmes TV sport", en: "Sports TV listings aggregator" },
+    punchline: {
+      fr: "Savoir en un coup d'œil quel match passe, quand et sur quelle chaîne.",
+      en: "See at a glance which match is on, when and on which channel.",
+    },
+    stack: ["React 19", "Vite 7", "Tailwind CSS", "Node.js", "GitHub Actions"],
     href: "https://benjaminbusselet.github.io/tv_sports/",
+    repo: "https://github.com/benjaminbusselet/tv_sports",
+    sections: {
+      context: {
+        fr: "Les calendriers des compétitions (football, rugby, F1) et les grilles TV sont publiés séparément : pour savoir qui diffuse un match, il faut croiser plusieurs sources à la main.",
+        en: "Competition calendars (football, rugby, F1) and TV schedules are published separately: finding out who broadcasts a match means cross-checking several sources by hand.",
+      },
+      goal: {
+        fr: "Réunir sur une seule page les matchs des 7 prochains jours avec leurs diffuseurs, sans intervention manuelle.",
+        en: "Gather the next 7 days of matches and their broadcasters on a single page, with no manual work.",
+      },
+      actions: {
+        fr: "Pipeline Node.js qui lit les calendriers ICS et les grilles EPG puis les fusionne en fichiers JSON ; interface React 19 + Vite 7 + Tailwind ; workflow GitHub Actions qui reconstruit et déploie le site chaque nuit.",
+        en: "Node.js pipeline that reads ICS calendars and EPG schedules and merges them into JSON files; React 19 + Vite 7 + Tailwind front end; GitHub Actions workflow that rebuilds and deploys the site every night.",
+      },
+      role: {
+        fr: "Projet personnel mené seul : conception, pipeline de données, interface et CI/CD.",
+        en: "Solo personal project: design, data pipeline, front end and CI/CD.",
+      },
+      result: {
+        fr: "Site en ligne sur GitHub Pages, mis à jour automatiquement chaque jour à 1h UTC sur une fenêtre glissante de 7 jours.",
+        en: "Live on GitHub Pages, updated automatically every day at 1am UTC over a rolling 7-day window.",
+      },
+    },
   },
   {
-    image: "5.png",
-    description: "Un site de prise de rendez-vous",
-    href: "https://www.puresophro.com",
+    slug: "llm-arena",
+    image: null,
+    title: "LLM Board Game Arena",
+    kicker: { fr: "Des LLM s'affrontent sur un jeu de plateau", en: "LLMs battle on a board game" },
+    punchline: {
+      fr: "Mesurer des modèles d'IA sur autre chose que des benchmarks : une vraie partie.",
+      en: "Measuring AI models on something other than benchmarks: an actual game.",
+    },
+    stack: ["JavaScript (ES modules)", "Vite", "Vitest", "Node.js", "OpenAI-compatible APIs"],
+    href: null,
+    repo: "https://github.com/benjaminbusselet/llm-board-game-arena",
+    sections: {
+      context: {
+        fr: "Point de départ : un jeu de plateau tour par tour réalisé en 2020 pour OpenClassrooms (jQuery, Bootstrap), joué à deux sur le même écran.",
+        en: "Starting point: a turn-based board game built in 2020 for OpenClassrooms (jQuery, Bootstrap), played by two people on one screen.",
+      },
+      goal: {
+        fr: "Faire jouer des LLM de toutes origines (américains, chinois, européens, ouverts ou fermés) les uns contre les autres et comparer leurs résultats.",
+        en: "Have LLMs from everywhere (US, Chinese, European, open or closed) play against each other and compare the results.",
+      },
+      actions: {
+        fr: "Moteur de jeu séparé de l'affichage et testé avec Vitest ; arène Node.js qui interroge les API compatibles OpenAI (Groq, OpenRouter, Mistral…) ; chaque coup est validé par le moteur ; journal JSONL par partie.",
+        en: "Game engine split from the UI and tested with Vitest; Node.js arena calling OpenAI-compatible APIs (Groq, OpenRouter, Mistral…); every move is validated by the engine; one JSONL log per game.",
+      },
+      role: {
+        fr: "Projet personnel mené seul : refonte du moteur, conception de l'arène et des mesures.",
+        en: "Solo personal project: engine rewrite, arena and metrics design.",
+      },
+      result: {
+        fr: "Chaque partie mesure la victoire, le coût en tokens et le temps de réponse de chaque modèle.",
+        en: "Each game measures the win, token cost and response time of each model.",
+      },
+    },
   },
+  {
+    slug: "puresophro",
+    image: "5.png",
+    title: "PureSophro",
+    kicker: { fr: "Site de prise de rendez-vous", en: "Appointment booking website" },
+    punchline: {
+      fr: "Un site client complet, du front à la base de données.",
+      en: "A complete client website, from front end to database.",
+    },
+    stack: ["React", "Next.js", "MongoDB"],
+    href: "https://www.puresophro.com",
+    repo: null,
+    sections: {
+      context: {
+        fr: "Mission freelance (2020 - 2022) pour un cabinet de sophrologie qui avait besoin d'un site avec prise de rendez-vous.",
+        en: "Freelance assignment (2020 - 2022) for a sophrology practice that needed a website with appointment booking.",
+      },
+      goal: {
+        fr: "Livrer un site fiable que le client peut utiliser au quotidien.",
+        en: "Deliver a reliable website the client can use every day.",
+      },
+      actions: {
+        fr: "Développement front et back avec React, Next.js et MongoDB, puis maintenance et optimisation.",
+        en: "Front and back end development with React, Next.js and MongoDB, followed by maintenance and optimisation.",
+      },
+      role: {
+        fr: "Développeur unique sur le projet.",
+        en: "Sole developer on the project.",
+      },
+      result: {
+        fr: "Site en production : puresophro.com.",
+        en: "Website in production: puresophro.com.",
+      },
+    },
+  },
+];
+
+// Projets de formation, affichés en cartes simples sous les études de cas.
+export const otherProjects = [
   {
     image: "1.png",
-    description: "Un site OnePage 100% responsive pour un festival",
+    description: { fr: "Site OnePage 100% responsive pour un festival", en: "Fully responsive one-page website for a festival" },
     href: "https://github.com/benjaminbusselet/lesfilmsdepleinair_react",
   },
   {
     image: "3.png",
-    description: "Un jeu de plateau tour par tour en JavaScript",
+    description: { fr: "Jeu de plateau tour par tour en JavaScript", en: "Turn-based board game in JavaScript" },
     href: "https://github.com/benjaminbusselet/laravsnathan",
   },
   {
     image: "4.png",
-    description: "Un site d'avis de restaurants en JavaScript",
+    description: { fr: "Site d'avis de restaurants en JavaScript", en: "Restaurant review website in JavaScript" },
     href: "https://github.com/benjaminbusselet/kelresto",
   },
 ];
