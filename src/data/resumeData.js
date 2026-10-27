@@ -80,6 +80,13 @@ export const otherSkills = [
       { fr: "WordPress", en: "WordPress" },
     ],
   },
+  {
+    title: { fr: "Langues", en: "Languages" },
+    items: [
+      { fr: "Français : langue maternelle", en: "French: native" },
+      { fr: "Anglais : professionnel (B2)", en: "English: professional working proficiency (B2)" },
+    ],
+  },
 ];
 
 export const experiences = [
