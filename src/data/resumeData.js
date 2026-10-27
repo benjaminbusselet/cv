@@ -197,41 +197,6 @@ export const caseStudies = [
     },
   },
   {
-    slug: "llm-arena",
-    image: null,
-    title: "LLM Board Game Arena",
-    kicker: { fr: "Des LLM s'affrontent sur un jeu de plateau", en: "LLMs battle on a board game" },
-    punchline: {
-      fr: "Mesurer des modèles d'IA sur autre chose que des benchmarks : une vraie partie.",
-      en: "Measuring AI models on something other than benchmarks: an actual game.",
-    },
-    stack: ["JavaScript (ES modules)", "Vite", "Vitest", "Node.js", "OpenAI-compatible APIs"],
-    href: null,
-    repo: "https://github.com/benjaminbusselet/llm-board-game-arena",
-    sections: {
-      context: {
-        fr: "Point de départ : un jeu de plateau tour par tour réalisé en 2020 pour OpenClassrooms (jQuery, Bootstrap), joué à deux sur le même écran.",
-        en: "Starting point: a turn-based board game built in 2020 for OpenClassrooms (jQuery, Bootstrap), played by two people on one screen.",
-      },
-      goal: {
-        fr: "Faire jouer des LLM de toutes origines (américains, chinois, européens, ouverts ou fermés) les uns contre les autres et comparer leurs résultats.",
-        en: "Have LLMs from everywhere (US, Chinese, European, open or closed) play against each other and compare the results.",
-      },
-      actions: {
-        fr: "Moteur de jeu séparé de l'affichage et testé avec Vitest ; arène Node.js qui interroge les API compatibles OpenAI (Groq, OpenRouter, Mistral…) ; chaque coup est validé par le moteur ; journal JSONL par partie.",
-        en: "Game engine split from the UI and tested with Vitest; Node.js arena calling OpenAI-compatible APIs (Groq, OpenRouter, Mistral…); every move is validated by the engine; one JSONL log per game.",
-      },
-      role: {
-        fr: "Projet personnel mené seul : refonte du moteur, conception de l'arène et des mesures.",
-        en: "Solo personal project: engine rewrite, arena and metrics design.",
-      },
-      result: {
-        fr: "Chaque partie mesure la victoire, le coût en tokens et le temps de réponse de chaque modèle.",
-        en: "Each game measures the win, token cost and response time of each model.",
-      },
-    },
-  },
-  {
     slug: "puresophro",
     image: "5.png",
     title: "PureSophro",
@@ -269,12 +234,16 @@ export const caseStudies = [
 ];
 
 // Projets de formation, affichés en cartes simples sous les études de cas.
-// Le jeu de plateau (laravsnathan) n'y figure plus : c'est la v1 de LLM Arena.
 export const otherProjects = [
   {
     image: "1.png",
     description: { fr: "Site OnePage 100% responsive pour un festival", en: "Fully responsive one-page website for a festival" },
     href: "https://github.com/benjaminbusselet/lesfilmsdepleinair_react",
+  },
+  {
+    image: "3.png",
+    description: { fr: "Jeu de plateau tour par tour en JavaScript", en: "Turn-based board game in JavaScript" },
+    href: "https://github.com/benjaminbusselet/laravsnathan",
   },
   {
     image: "4.png",
