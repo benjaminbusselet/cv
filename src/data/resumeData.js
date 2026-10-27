@@ -141,7 +141,11 @@ export const experiences = [
 export const formations = [
   {
     period: "2017 - 2020",
-    title: { fr: "Master 1 : Développeur d'application", en: "Master's level (1st year): Application developer" },
+    // Diplôme du 01/04/2020 : « titre de niveau 6 » RNCP, pas un master universitaire.
+    title: {
+      fr: "Titre RNCP niveau 6 (Bac+4, niveau Master 1) : Développeur d'application",
+      en: "RNCP level 6 certification (4 years post-secondary, first-year Master's level): Application developer",
+    },
     detail: "OpenClassrooms, Paris",
   },
   {
