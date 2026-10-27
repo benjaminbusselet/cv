@@ -7,6 +7,7 @@
     --color-accent: #a04f24;
     --color-accent-soft: #f4e3d7;
     --color-on-accent: #faf7f2;
+    --icon-bg: transparent;
     --font-body: 'IBM Plex Sans', Optima, sans-serif;
     --font-heading: 'Space Grotesk', 'IBM Plex Sans', sans-serif;
     --font-mono: 'IBM Plex Mono', ui-monospace, Menlo, monospace;
@@ -28,6 +29,7 @@
         --color-accent: #d47a3f;
         --color-accent-soft: #3b2a1f;
         --color-on-accent: #1c1a17;
+        --icon-bg: #f3efe8;
     }
 }
 
@@ -40,6 +42,7 @@
     --color-accent: #d47a3f;
     --color-accent-soft: #3b2a1f;
     --color-on-accent: #1c1a17;
+    --icon-bg: #f3efe8;
 }
 
 *,
@@ -450,9 +453,15 @@ a:hover .nudge {
     transform: translateY(-3px);
 }
 
+/* --icon-bg : pastille claire en mode sombre, pour que les couleurs de
+   marque foncées (Lua, MySQL, Next.js...) restent lisibles. */
 .skill-card__icon {
     color: var(--brand);
     font-size: 1.2rem;
+    box-sizing: content-box;
+    padding: 2px;
+    border-radius: 4px;
+    background: var(--icon-bg);
 }
 
 .skills-other {
@@ -605,12 +614,12 @@ a:hover .nudge {
     border-left: 2px solid var(--color-border);
 }
 
-.timeline li {
+.timeline > li {
     position: relative;
     padding-bottom: 28px;
 }
 
-.timeline li::before {
+.timeline > li::before {
     content: "";
     position: absolute;
     left: -27px;

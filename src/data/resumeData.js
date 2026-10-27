@@ -268,16 +268,12 @@ export const caseStudies = [
 ];
 
 // Projets de formation, affichés en cartes simples sous les études de cas.
+// Le jeu de plateau (laravsnathan) n'y figure plus : c'est la v1 de LLM Arena.
 export const otherProjects = [
   {
     image: "1.png",
     description: { fr: "Site OnePage 100% responsive pour un festival", en: "Fully responsive one-page website for a festival" },
     href: "https://github.com/benjaminbusselet/lesfilmsdepleinair_react",
-  },
-  {
-    image: "3.png",
-    description: { fr: "Jeu de plateau tour par tour en JavaScript", en: "Turn-based board game in JavaScript" },
-    href: "https://github.com/benjaminbusselet/laravsnathan",
   },
   {
     image: "4.png",
