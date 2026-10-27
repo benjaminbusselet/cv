@@ -32,9 +32,6 @@ export const profile = {
   email: "benjamin.busselet@icloud.com",
   linkedin: "http://linkedin.com/in/benjamin-busselet",
   github: "https://github.com/benjaminbusselet",
-  // Endpoint Formspree (https://formspree.io) : vide → le formulaire
-  // ouvre le client mail avec le message pré-rempli.
-  contactEndpoint: "",
 };
 
 export const softSkills = [

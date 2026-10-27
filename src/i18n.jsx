@@ -28,20 +28,8 @@ const ui = {
   experiences: { fr: "Expériences", en: "Experience" },
   formations: { fr: "Formations", en: "Education" },
   contactIntro: {
-    fr: "Un poste, une question ou un projet ? Écrivez-moi.",
-    en: "A role, a question or a project? Drop me a line.",
-  },
-  form: {
-    name: { fr: "Nom", en: "Name" },
-    email: { fr: "E-mail", en: "Email" },
-    message: { fr: "Message", en: "Message" },
-    send: { fr: "Envoyer", en: "Send" },
-    sending: { fr: "Envoi…", en: "Sending…" },
-    sent: { fr: "Message envoyé, je vous réponds au plus vite.", en: "Message sent, I'll get back to you soon." },
-    error: {
-      fr: "L'envoi a échoué. Réessayez ou écrivez directement à",
-      en: "Sending failed. Try again or email me directly at",
-    },
+    fr: "Un poste, une question ou un projet ? Écrivez-moi ou appelez-moi.",
+    en: "A role, a question or a project? Email or call me.",
   },
   caseSections: {
     context: { fr: "Contexte", en: "Context" },
@@ -95,7 +83,7 @@ export function LangProvider({ children }) {
   return <LangContext.Provider value={{ lang, setLang }}>{children}</LangContext.Provider>;
 }
 
-// t("form.send") → texte de l'interface ; t(objet) → traduction d'une
+// t("nav.contact") → texte de l'interface ; t(objet) → traduction d'une
 // donnée ; une chaîne qui n'est pas une clé (nom propre, date) est
 // renvoyée telle quelle.
 export function useLang() {
