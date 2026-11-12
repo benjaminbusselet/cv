@@ -16,7 +16,7 @@
   },
   "scripts": {
     "start": "vite",
-    "build": "vite build",
+    "build": "vite build && node scripts/prerender.mjs",
     "preview": "vite preview",
     "deploy": "gh-pages -d dist",
     "cv:pdf": "node scripts/build-cv-pdf.mjs"

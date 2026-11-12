@@ -24,3 +24,4 @@ yarn-error.log*
 
 # build (publié via la branche gh-pages)
 /dist
+dist-ssr

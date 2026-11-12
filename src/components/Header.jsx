@@ -9,7 +9,7 @@ const THEME_KEY = "cv-theme";
 // Thème : suit le système tant que l'utilisateur n'a rien choisi ;
 // un clic fixe data-theme sur <html>, que main.css prend en priorité.
 function useTheme() {
-  const systemDark = () => window.matchMedia("(prefers-color-scheme: dark)").matches;
+  const systemDark = () => typeof window !== "undefined" && window.matchMedia("(prefers-color-scheme: dark)").matches;
   const [theme, setTheme] = useState(() => {
     try {
       return localStorage.getItem(THEME_KEY);

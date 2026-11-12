@@ -65,6 +65,8 @@ function initialLang() {
   } catch {
     // Stockage indisponible (navigation privée) : on retombe sur le navigateur.
   }
+  // Pré-rendu (Node, sans navigateur) : français par défaut.
+  if (typeof navigator === "undefined") return "fr";
   return navigator.language?.startsWith("fr") ? "fr" : "en";
 }
 
