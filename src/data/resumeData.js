@@ -25,8 +25,8 @@ export const profile = {
     en: "Open to permanent front-end / full-stack developer roles, fully remote or hybrid.",
   },
   location: {
-    fr: "Alpes-Maritimes (06) · Télétravail full/hybride · Permis B, véhicule",
-    en: "Alpes-Maritimes, France · Remote or hybrid · Driving licence, own car",
+    fr: "Basé en France · Télétravail full/hybride · Permis B, véhicule",
+    en: "Based in France · Remote or hybrid · Driving licence, own car",
   },
   phone: "06 22 15 43 99",
   email: "benjamin.busselet@icloud.com",
